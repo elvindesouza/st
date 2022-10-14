@@ -804,6 +804,7 @@ static Key key[] = {
 	{ XK_slash,        Mod1Mask|ControlMask,           "\033[47;7u",  0,  0},
 	{ XK_slash,        Mod1Mask|ControlMask|ShiftMask, "\033[47;8u",  0,  0},
 	{ XK_slash,        Mod1Mask|ShiftMask,             "\033[47;4u",  0,  0},
+	{ XK_slash,        ControlMask,          "\033[47;5u",  0,  0},
 	{ XK_underscore,   ControlMask,                    "\033[95;5u",  0,  0},
 	{ XK_underscore,   ControlMask|ShiftMask,          "\033[95;6u",  0,  0},
 	{ XK_underscore,   Mod1Mask,                       "\033[95;3u",  0,  0},
