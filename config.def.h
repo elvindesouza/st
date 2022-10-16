@@ -10,7 +10,7 @@ static char *font = "Iosevka Nerd Font Mono:pixelsize=32:antialias=true:autohint
 /* Spare fonts */
 static char *font2[] = {
 /*	"Inconsolata for Powerline:pixelsize=12:antialias=true:autohint=true", */
-/*	"Hack Nerd Font Mono:pixelsize=11:antialias=true:autohint=true", */
+// "Hack Nerd Font Mono:pixelsize=11:antialias=true:autohint=true", 
 };
 #endif // FONT2_PATCH
 
@@ -189,7 +189,7 @@ static const char *colorname[] = {
 	"#add8e6", /* 256 -> cursor */
 	"#555555", /* 257 -> rev cursor*/
 	"#000000", /* 258 -> bg */
-	"#e5e5e5", /* 259 -> fg */
+	"#f1ff94", /* 259 -> fg */
 };
 
 
@@ -759,5 +759,5 @@ static char *plumb_cmd = "plumb";
 #define UNDERCURL_SPIKY 1
 #define UNDERCURL_CAPPED 2
 // Active style
-#define UNDERCURL_STYLE UNDERCURL_SPIKY
+#define UNDERCURL_STYLE UNDERCURL_CAPPED
 #endif // UNDERCURL_PATCH
