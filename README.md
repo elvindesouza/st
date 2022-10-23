@@ -1,3 +1,18 @@
+My build of suckless st, forked from [st-flexipatch](https://github.com/bakkeby/st-flexipatch/). Changes to the fix keyboard input patch, hotkeys/shortcuts, colors and fonts and font-sizes. Most of these changes are meant to imitate the kitty terminal emulator
+
+Upstream changes from flexipatch are always being merged into the master branch.
+
+**To "run" the "codings" make +xecutable and `./build`. Refer to the suckless website for deps, and consult the `README` here**
+
+A desktop file for `st` should be created with the desktop entry patch, I might customize this later.
+
+`$TERM` is configured to be `st-256color`
+
+![](images/st.png)
+
+![](images/st-nvim.png)
+
+
 Similar to [dwm-flexipatch](https://github.com/bakkeby/dwm-flexipatch) this st 0.9 (68d1ad9, 2022-10-04) project has a different take on st patching. It uses preprocessor directives to decide whether or not to include a patch during build time. Essentially this means that this build, for better or worse, contains both the patched _and_ the original code. The aim being that you can select which patches to include and the build will contain that code and nothing more.
 
 For example to include the `alpha` patch then you would only need to flip this setting from 0 to 1 in [patches.h](https://github.com/bakkeby/st-flexipatch/blob/master/patches.def.h):
