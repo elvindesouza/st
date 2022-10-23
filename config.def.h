@@ -10,7 +10,7 @@ static char *font = "Iosevka Term:pixelsize=52:antialias=true:autohint=true";
 /* Spare fonts */
 static char *font2[] = {
 /*	"Inconsolata for Powerline:pixelsize=12:antialias=true:autohint=true", */
- "Iosevka Nerd Font Mono:pixelsize=52:antialias=true:autohint=true" 
+ "Iosevka Nerd Font Mono:pixelsize=40:antialias=true:autohint=true" 
 };
 #endif // FONT2_PATCH
 
@@ -168,7 +168,7 @@ static const char *colorname[] = {
 	"red3",
 	"green3",
 	"yellow3",
-	"blue2",
+	"#01a0e4",
 	"magenta3",
 	"cyan3",
 	"gray90",
@@ -178,7 +178,7 @@ static const char *colorname[] = {
 	"red",
 	"green",
 	"yellow",
-	"#5c5cff",
+	"#01a0e4",
 	"magenta",
 	"cyan",
 	"white",
@@ -189,7 +189,7 @@ static const char *colorname[] = {
 	"#add8e6", /* 256 -> cursor */
 	"#555555", /* 257 -> rev cursor*/
 	"#000000", /* 258 -> bg */
-	"#ffd260", /* 259 -> fg */
+	"#93a1a1", /* 259 -> fg */
 };
 
 
@@ -388,8 +388,8 @@ static Shortcut shortcuts[] = {
 	{ ControlMask,          XK_Print,       toggleprinter,   {.i =  0} },
 	{ ShiftMask,            XK_Print,       printscreen,     {.i =  0} },
 	{ XK_ANY_MOD,           XK_Print,       printsel,        {.i =  0} },
-	{ TERMMOD,              XK_Prior,       zoom,            {.f = +1} },
-	{ TERMMOD,              XK_Next,        zoom,            {.f = -1} },
+	{ TERMMOD,              XK_plus,       zoom,            {.f = +1} },
+	{ TERMMOD,              XK_underscore,        zoom,            {.f = -1} },
 	{ TERMMOD,              XK_Home,        zoomreset,       {.f =  0} },
 	{ TERMMOD,              XK_C,           clipcopy,        {.i =  0} },
 	{ TERMMOD,              XK_V,           clippaste,       {.i =  0} },
@@ -402,8 +402,8 @@ static Shortcut shortcuts[] = {
 	#endif // ALPHA_FOCUS_HIGHLIGHT_PATCH
 	#endif // ALPHA_PATCH
 	#if SCROLLBACK_PATCH
-	{ ShiftMask,            XK_Page_Up,     kscrollup,       {.i = -1}, S_PRI },
-	{ ShiftMask,            XK_Page_Down,   kscrolldown,     {.i = -1}, S_PRI },
+	{ TERMMOD,            XK_K,     kscrollup,       {.i = 1}, S_PRI },
+	{ TERMMOD,            XK_J,   kscrolldown,     {.i = 1}, S_PRI },
 	#endif // SCROLLBACK_PATCH
 	#if CLIPBOARD_PATCH
 	{ TERMMOD,              XK_Y,           clippaste,       {.i =  0} },
