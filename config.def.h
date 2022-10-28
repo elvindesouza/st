@@ -9,9 +9,9 @@ static char *font = "Iosevka Term:pixelsize=52:antialias=true:autohint=true";
 #if FONT2_PATCH
 /* Spare fonts */
 static char *font2[] = {
-	"Inconsolata for Powerline:pixelsize=12:antialias=true:autohint=true", 
+	"Inconsolata for Powerline:pixelsize=12:antialias=true:autohint=true",
     "PowerlineSymbols:pixelsize=40:antialias=true:autohint=true",
- "Iosevka Nerd Font Mono:pixelsize=40:antialias=true:autohint=true" 
+ "Iosevka Nerd Font Mono:pixelsize=40:antialias=true:autohint=true"
 };
 #endif // FONT2_PATCH
 
@@ -402,6 +402,10 @@ static Shortcut shortcuts[] = {
 	//{ TERMMOD,              XK_,           changealphaunfocused, {.f = -0.05} },
 	#endif // ALPHA_FOCUS_HIGHLIGHT_PATCH
 	#endif // ALPHA_PATCH
+	#if FULLSCREEN_PATCH
+	{ XK_NO_MOD,            XK_F11,         fullscreen,      {.i =  0} },
+	{ MODKEY,               XK_Return,      fullscreen,      {.i =  0} },
+	#endif // FULLSCREEN_PATCH
 	#if SCROLLBACK_PATCH
 	{ TERMMOD,            XK_K,     kscrollup,       {.i = 1}, S_PRI },
 	{ TERMMOD,            XK_J,   kscrolldown,     {.i = 1}, S_PRI },

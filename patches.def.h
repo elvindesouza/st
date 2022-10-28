@@ -74,7 +74,7 @@
  * This patch makes st set CLIPBOARD on selection.
  * https://st.suckless.org/patches/clipboard/
  */
-#define CLIPBOARD_PATCH 0
+#define CLIPBOARD_PATCH 1
 
 /* This patch allows st to be resized without cutting off text when the terminal window is
  * made larger again. Text does not wrap when the terminal window is made smaller.
@@ -179,6 +179,13 @@
  * https://st.suckless.org/patches/font2/
  */
 #define FONT2_PATCH 1
+
+/* This patch adds the ability to toggle st into fullscreen mode.
+ * Two key bindings are defined: F11 which is typical with other applications and Alt+Enter
+ * which matches the default xterm behavior.
+ * https://st.suckless.org/patches/fullscreen/
+ */
+#define FULLSCREEN_PATCH 0
 
 /* Hide the X cursor whenever a key is pressed and show it back when the mouse is moved in
  * the terminal window.
@@ -410,7 +417,7 @@
 /* Adds support for w3m images.
  * https://st.suckless.org/patches/w3m/
  */
-#define W3M_PATCH 0
+#define W3M_PATCH 1
 
 /* Adds proper glyphs rendering in st allowing wide glyphs to be drawn as-is as opposed to
  * smaller or cut glyphs being rendered.
