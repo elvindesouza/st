@@ -1,3 +1,5 @@
+#!/bin/env bash
 rm -f config.h
+rm -f patches.h
 sudo make clean install 
 st
