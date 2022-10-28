@@ -9,7 +9,8 @@ static char *font = "Iosevka Term:pixelsize=52:antialias=true:autohint=true";
 #if FONT2_PATCH
 /* Spare fonts */
 static char *font2[] = {
-/*	"Inconsolata for Powerline:pixelsize=12:antialias=true:autohint=true", */
+	"Inconsolata for Powerline:pixelsize=12:antialias=true:autohint=true", 
+    "PowerlineSymbols:pixelsize=40:antialias=true:autohint=true",
  "Iosevka Nerd Font Mono:pixelsize=40:antialias=true:autohint=true" 
 };
 #endif // FONT2_PATCH
@@ -116,11 +117,11 @@ static unsigned int cursorthickness = 2;
  *    Bold affects lines thickness if boxdraw_bold is not 0. Italic is ignored.
  * 0: disable (render all U25XX glyphs normally from the font).
  */
-const int boxdraw = 0;
+const int boxdraw = 1;
 const int boxdraw_bold = 0;
 
 /* braille (U28XX):  1: render as adjacent "pixels",  0: use font */
-const int boxdraw_braille = 0;
+const int boxdraw_braille = 1;
 #endif // BOXDRAW_PATCH
 
 /*
@@ -755,5 +756,5 @@ static char *plumb_cmd = "plumb";
 #define UNDERCURL_SPIKY 1
 #define UNDERCURL_CAPPED 2
 // Active style
-#define UNDERCURL_STYLE UNDERCURL_CAPPED
+#define UNDERCURL_STYLE UNDERCURL_CURLY
 #endif // UNDERCURL_PATCH
