@@ -101,7 +101,7 @@
  * restores the window title (for instance nvim does this when opening and closing).
  * https://st.suckless.org/patches/csi_22_23/
  */
-#define CSI_22_23_PATCH 1
+#define CSI_22_23_PATCH 0
 
 /* According to the specification (see link in BLINKING_CURSOR_PATCH) the "Set cursor style
  * (DECSCUSR), VT520." escape sequences define both values of 0 and 1 as a blinking block,
@@ -178,7 +178,7 @@
  * So they will be used first for glyphs that are absent in the default font.
  * https://st.suckless.org/patches/font2/
  */
-#define FONT2_PATCH 1
+#define FONT2_PATCH 0
 
 /* This patch adds the ability to toggle st into fullscreen mode.
  * Two key bindings are defined: F11 which is typical with other applications and Alt+Enter
@@ -225,7 +225,7 @@
  * https://github.com/cog1to/st-ligatures
  * https://st.suckless.org/patches/ligatures/
  */
-#define LIGATURES_PATCH 0
+#define LIGATURES_PATCH 1
 
 /* This patch makes st ignore terminal color attributes by forcing display of the default
  * foreground and background colors only - making for a monochrome look. Idea ref.
@@ -236,13 +236,13 @@
 /* This patch sets the _NET_WM_ICON X property with a hardcoded icon for st.
  * https://st.suckless.org/patches/netwmicon/
  */
-#define NETWMICON_PATCH 1
+#define NETWMICON_PATCH 0
 
 /* This patch allows you to spawn a new st terminal using Ctrl-Shift-Return. It will have the
  * same CWD (current working directory) as the original st instance.
  * https://st.suckless.org/patches/newterm/
  */
-#define NEWTERM_PATCH 1
+#define NEWTERM_PATCH 0
 
 /* This patch will set the _MOTIF_WM_HINTS property for the st window which, if the window manager
  * respects it, will show the st window without window decorations.
@@ -417,7 +417,7 @@
 /* Adds support for w3m images.
  * https://st.suckless.org/patches/w3m/
  */
-#define W3M_PATCH 1
+#define W3M_PATCH 0
 
 /* Adds proper glyphs rendering in st allowing wide glyphs to be drawn as-is as opposed to
  * smaller or cut glyphs being rendered.

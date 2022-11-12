@@ -9,9 +9,9 @@ static char *font = "Iosevka Term:pixelsize=52:antialias=true:autohint=true";
 #if FONT2_PATCH
 /* Spare fonts */
 static char *font2[] = {
-	"Inconsolata for Powerline:pixelsize=12:antialias=true:autohint=true",
-    "PowerlineSymbols:pixelsize=40:antialias=true:autohint=true",
- "Iosevka Nerd Font Mono:pixelsize=40:antialias=true:autohint=true"
+	// "Inconsolata for Powerline:pixelsize=12:antialias=true:autohint=true",
+ //    "PowerlineSymbols:pixelsize=40:antialias=true:autohint=true",
+ // "Iosevka Nerd Font Mono:pixelsize=40:antialias=true:autohint=true"
 };
 #endif // FONT2_PATCH
 
