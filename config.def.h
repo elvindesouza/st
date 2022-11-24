@@ -209,7 +209,7 @@ unsigned int defaultcs = 256;
 unsigned int defaultrcs = 257;
 
 #if VIM_BROWSE_PATCH
-unsigned int const currentBg = 6, buffSize = 2048;
+unsigned int const currentBg = 6, buffSize = 5012;
 /// Enable double / triple click yanking / selection of word / line.
 int const mouseYank = 1, mouseSelect = 0;
 /// [Vim Browse] Colors for search results currently on screen.
@@ -409,8 +409,8 @@ static Shortcut shortcuts[] = {
 	{ MODKEY,               XK_Return,      fullscreen,      {.i =  0} },
 	#endif // FULLSCREEN_PATCH
 	#if SCROLLBACK_PATCH
-	{ TERMMOD,            XK_K,     kscrollup,       {.i = 1}, S_PRI },
-	{ TERMMOD,            XK_J,   kscrolldown,     {.i = 1}, S_PRI },
+	{ TERMMOD,            XK_K,     kscrollup,       {.i = 3}, S_PRI },
+	{ TERMMOD,            XK_J,   kscrolldown,     {.i = 3}, S_PRI },
 	#endif // SCROLLBACK_PATCH
 	#if CLIPBOARD_PATCH
 	{ TERMMOD,              XK_Y,           clippaste,       {.i =  0} },
