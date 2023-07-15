@@ -5,12 +5,13 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Iosevka Term:pixelsize=52:antialias=true:autohint=true";
+static char *font = "Iosevka Term:pixelsize=43:antialias=true:autohint=true";
 #if FONT2_PATCH
 /* Spare fonts */
 static char *font2[] = {
-	"Inconsolata for Powerline:pixelsize=12:antialias=true:autohint=true",
-    "PowerlineSymbols:pixelsize=40:antialias=true:autohint=true",
+	"Inconsolata for Powerline:pixelsize=43:antialias=true:autohint=true",
+    "PowerlineSymbols:pixelsize=43:antialias=true:autohint=true",
+    "Noto Mono:pixelsize=43:antialias=true:autohint=true"
     "Iosevka Nerd Font Mono:pixelsize=40:antialias=true:autohint=true"
 };
 #endif // FONT2_PATCH
@@ -47,7 +48,7 @@ static char *url_opener = "xdg-open";
  * 4: value of shell in /etc/passwd
  * 5: value of shell in config.h
  */
-static char *shell = "/bin/zsh";
+static char *shell = "/usr/bin/zsh";
 char *utmp = NULL;
 /* scroll program: to enable use a string like "scroll" */
 char *scroll = NULL;
@@ -152,7 +153,7 @@ unsigned int tabspaces = 8;
 
 #if ALPHA_PATCH
 /* bg opacity */
-float alpha = 0.8;
+float alpha = 0.7;
 #if ALPHA_GRADIENT_PATCH
 float grad_alpha = 0.54; //alpha value that'll change
 float stat_alpha = 0.46; //constant alpha value that'll get added to grad_alpha
@@ -762,5 +763,5 @@ static char *plumb_cmd = "plumb";
 #define UNDERCURL_SPIKY 1
 #define UNDERCURL_CAPPED 2
 // Active style
-#define UNDERCURL_STYLE UNDERCURL_CURLY
+#define UNDERCURL_STYLE UNDERCURL_CAPPED 
 #endif // UNDERCURL_PATCH

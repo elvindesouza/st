@@ -564,6 +564,7 @@ static Key key[] = {
 	{ XK_i,            Mod1Mask|ControlMask,           "\033[105;7u", 0,  0},
 	{ XK_m,            ControlMask,                    "\033[109;5u", 0,  0},
 	{ XK_m,            Mod1Mask|ControlMask,           "\033[109;7u", 0,  0},
+	{ XK_space, ControlMask, "\033[32;5u", 0, 0 },
 	{ XK_space,        ControlMask|ShiftMask,          "\033[32;6u",  0,  0},
 	{ XK_space,        Mod1Mask,                       "\033[32;3u",  0,  0},
 	{ XK_space,        Mod1Mask|ControlMask,           "\033[32;7u",  0,  0},
