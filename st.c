@@ -1508,7 +1508,7 @@ tscrollup(int orig, int n)
 void
 selscroll(int orig, int n)
 {
-	if (sel.ob.x == -1)
+	if (sel.ob.x == -1 || sel.alt != IS_SET(MODE_ALTSCREEN))
 		return;
 
 	if (BETWEEN(sel.nb.y, orig, term.bot) != BETWEEN(sel.ne.y, orig, term.bot)) {
@@ -2341,6 +2341,12 @@ csihandle(void)
 		break;
 	case 'l': /* RM -- Reset Mode */
 		tsetmode(csiescseq.priv, 0, csiescseq.arg, csiescseq.narg);
+		#if SIXEL_PATCH
+		if (IS_SET(MODE_ALTSCREEN)) {
+			for (im = term.images; im; im = im->next)
+				im->should_delete = 1;
+		}
+		#endif // SIXEL_PATCH
 		break;
 	case 'M': /* DL -- Delete <n> lines */
 		DEFAULT(csiescseq.arg[0], 1);
@@ -2558,6 +2564,8 @@ strhandle(void)
 				}
 			}
 			return;
+		case 8: /* Clear Hyperlinks */
+			return;
 		case 10:
 			if (narg < 2)
 				break;
@@ -2642,16 +2650,16 @@ strhandle(void)
 			term.mode &= ~MODE_SIXEL;
 			new_image = malloc(sizeof(ImageList));
 			memset(new_image, 0, sizeof(ImageList));
+			if (sixel_parser_finalize(&sixel_st, &new_image->pixels) != 0) {
+				perror("sixel_parser_finalize() failed");
+				sixel_parser_deinit(&sixel_st);
+				free(new_image);
+				return;
+			}
 			new_image->x = term.c.x;
 			new_image->y = term.c.y;
 			new_image->width = sixel_st.image.width;
 			new_image->height = sixel_st.image.height;
-			new_image->pixels = malloc(new_image->width * new_image->height * 4);
-			if (sixel_parser_finalize(&sixel_st, new_image->pixels) != 0) {
-				perror("sixel_parser_finalize() failed");
-				sixel_parser_deinit(&sixel_st);
-				return;
-			}
 			sixel_parser_deinit(&sixel_st);
 			if (term.images) {
 				ImageList *im;
@@ -3071,6 +3079,14 @@ eschandle(uchar ascii)
 		#endif // CSI_22_23_PATCH
 		resettitle();
 		xloadcols();
+		xsetmode(0, MODE_HIDE);
+		#if SCROLLBACK_PATCH
+		if (!IS_SET(MODE_ALTSCREEN)) {
+			term.scr = 0;
+			term.histi = 0;
+			term.histn = 0;
+		}
+		#endif // SCROLLBACK_PATCH
 		break;
 	case '=': /* DECPAM -- Application keypad */
 		xsetmode(1, MODE_APPKEYPAD);
@@ -3250,7 +3266,10 @@ check_control_code:
 	}
 
 	if (term.c.x+width > term.col) {
-		tnewline(1);
+		if (IS_SET(MODE_WRAP))
+			tnewline(1);
+		else
+			tmoveto(term.col - width, term.c.y);
 		gp = &term.line[term.c.y][term.c.x];
 	}
 
