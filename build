@@ -1,5 +1,23 @@
 #!/bin/env bash
+
+if command -v apt &> /dev/null; then
+    # sudo apt-get update
+    sudo apt-get install -y build-essential libx11-dev libxft-dev libharfbuzz-dev libxext-dev
+elif command -v pacman &> /dev/null; then
+    sudo pacman -Syu --noconfirm base-devel libx11 libxft harfbuzz libxext
+fi
+
 rm -f config.h
 rm -f patches.h
-sudo make clean install 
+sudo make clean install && \
+
+
+if command -v apt &> /dev/null; then
+    sudo apt-mark auto build-essential libx11-dev libxft-dev libharfbuzz-dev libxext-dev
+    # sudo apt --purge autoremove && sudo apt-get --purge remove
+elif command -v pacman &> /dev/null; then
+    # sudo pacman -Rns
+    echo ''
+fi && \
+
 st&

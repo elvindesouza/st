@@ -11,8 +11,18 @@ static char *font = "Iosevka Term:pixelsize=43:antialias=true:autohint=true";
 static char *font2[] = {
 	"Inconsolata for Powerline:pixelsize=43:antialias=true:autohint=true",
     "PowerlineSymbols:pixelsize=43:antialias=true:autohint=true",
+    "Iosevka Nerd Font Mono:pixelsize=40:antialias=true:autohint=true",
     "Noto Mono:pixelsize=43:antialias=true:autohint=true"
-    "Iosevka Nerd Font Mono:pixelsize=40:antialias=true:autohint=true"
+    // "NotoSansDevanagari-Regular:pixelsize=35:antialias=true:autohint=true",
+    // "NotoSerifDevanagari-Regular:pixelsize=35:antialias=true:autohint=true",
+    // "Lohit-Devanagari:pixelsize=35:antialias=true:autohint=true",
+    // "Kalimati:pixelsize=35:antialias=true:autohint=true",
+    // "Samanata:pixelsize=35:antialias=true:autohint=true"
+    // "Noto Sans Devanagari:pixelsize=35:antialias=true:autohint=true",
+    // "Noto Sans Bengali:pixelsize=35:antialias=true:autohint=true",
+    // "Noto Sans Tamil:pixelsize=35:antialias=true:autohint=true",
+    // "Noto Sans Telugu:pixelsize=35:antialias=true:autohint=true",
+    // "Noto Sans Kannada:pixelsize=35:antialias=true:autohint=true",
 };
 #endif // FONT2_PATCH
 
