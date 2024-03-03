@@ -1,11 +1,12 @@
 #!/bin/env bash
 
 if command -v apt &> /dev/null; then
-    # sudo apt-get update
-    sudo apt-get install -y build-essential libx11-dev libxft-dev libharfbuzz-dev libxext-dev
+    sudo apt install --mark-auto -y build-essential libx11-dev libxft-dev libharfbuzz-dev libxext-dev
 elif command -v pacman &> /dev/null; then
-    sudo pacman -Syu --noconfirm base-devel libx11 libxft harfbuzz libxext
+    sudo pacman -S --needed --noconfirm base-devel libx11 libxft harfbuzz libxext
 fi
+
+echo "Go to .local/share/fonts and run the script to download fonts"
 
 rm -f config.h
 rm -f patches.h
@@ -13,11 +14,10 @@ sudo make clean install && \
 
 
 if command -v apt &> /dev/null; then
-    sudo apt-mark auto build-essential libx11-dev libxft-dev libharfbuzz-dev libxext-dev
-    # sudo apt --purge autoremove && sudo apt-get --purge remove
+    echo 'Remember to remove orphan build dependencies'
 elif command -v pacman &> /dev/null; then
     # sudo pacman -Rns
-    echo ''
+    echo 'Remember to remove these orphan build dependencies later: libx11 libxft harfbuzz libxext'
 fi && \
 
-st&
+st
