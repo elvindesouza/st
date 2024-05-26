@@ -23,6 +23,7 @@ static char *font2[] = {
     // "Noto Sans Tamil:pixelsize=35:antialias=true:autohint=true",
     // "Noto Sans Telugu:pixelsize=35:antialias=true:autohint=true",
     // "Noto Sans Kannada:pixelsize=35:antialias=true:autohint=true",
+    // dont forget to run the script to download fonts in dotfiles
 };
 #endif // FONT2_PATCH
 
