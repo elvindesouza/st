@@ -11,14 +11,12 @@ echo "Go to ~/.local/share/fonts and run the script to download fonts"
 
 rm -f config.h
 rm -f patches.h
+
 sudo make clean install && \
-
-
 if command -v apt &> /dev/null; then
     echo 'Remember to remove orphan build dependencies'
 elif command -v pacman &> /dev/null; then
     # sudo pacman -Rns
     echo 'Remember to remove these orphan build dependencies later: libx11 libxft harfbuzz libxext'
 fi && \
-
 st
