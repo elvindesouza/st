@@ -1,13 +1,13 @@
 #!/bin/env bash
 
 if command -v apt &> /dev/null; then
-    sudo apt install -y build-essential libx11-dev libxft-dev libharfbuzz-dev libxext-dev
-    sudo apt-mark auto build-essential libx11-dev libxft-dev libharfbuzz-dev libxext-dev
+    sudo apt install -y build-essential libx11-dev libxft-dev libharfbuzz-dev libxext-dev libimlib2-dev 
+    sudo apt-mark auto build-essential libx11-dev libxft-dev libharfbuzz-dev libxext-dev libimlib2-dev 
 elif command -v pacman &> /dev/null; then
     sudo pacman -S --needed --noconfirm base-devel libx11 libxft harfbuzz libxext
 fi
 
-echo "Go to .local/share/fonts and run the script to download fonts"
+echo "Go to ~/.local/share/fonts and run the script to download fonts"
 
 rm -f config.h
 rm -f patches.h
