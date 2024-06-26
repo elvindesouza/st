@@ -1,10 +1,10 @@
-My build of suckless st, forked from [st-flexipatch](https://github.com/bakkeby/st-flexipatch/). Changes to the fix keyboard input patch, hotkeys/shortcuts, colors and fonts and font-sizes. Most of these changes are meant to imitate the kitty terminal emulator
+My build of suckless st, forked from [st-flexipatch](https://github.com/bakkeby/st-flexipatch/). Changes to the fix keyboard input patch, sixel, hotkeys/shortcuts, colors and fonts and font-sizes. Most of these changes are meant to imitate the kitty terminal emulator
 
 Upstream changes from flexipatch are always being merged into the master branch.
 
-**To "run" the "codings" make +xecutable and `./build`. Refer to the suckless website for deps, and consult the `README` here**
+**Make the `build` script executable and `./build`. Refer to the suckless website for deps, and consult the original `README` below**
 
-A desktop file for `st` should be created with the desktop entry patch, I might customize this later.
+A desktop file for `st` should be created too with the desktop entry patch.
 
 `$TERM` is configured to be `st-256color`
 

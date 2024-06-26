@@ -5,14 +5,14 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Iosevka Term:pixelsize=43:antialias=true:autohint=true";
+static char *font = "IosevkaTerm Nerd Font Mono:pixelsize=43:antialias=true:autohint=true";
 #if FONT2_PATCH
 /* Spare fonts */
 static char *font2[] = {
 	"Inconsolata for Powerline:pixelsize=43:antialias=true:autohint=true",
     "PowerlineSymbols:pixelsize=43:antialias=true:autohint=true",
-    "Iosevka Nerd Font Mono:pixelsize=40:antialias=true:autohint=true",
     "Noto Mono:pixelsize=43:antialias=true:autohint=true"
+
     // "NotoSansDevanagari-Regular:pixelsize=35:antialias=true:autohint=true",
     // "NotoSerifDevanagari-Regular:pixelsize=35:antialias=true:autohint=true",
     // "Lohit-Devanagari:pixelsize=35:antialias=true:autohint=true",
