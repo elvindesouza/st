@@ -7,7 +7,6 @@ elif command -v pacman &> /dev/null; then
     sudo pacman -S --needed --noconfirm base-devel libx11 libxft harfbuzz libxext imlib2
 fi
 
-echo "Go to ~/.local/share/fonts and run the script to download fonts"
 
 rm -f config.h
 rm -f patches.h
@@ -16,8 +15,10 @@ rm -f patches.h
 git clone https://github.com/NikitaIvanovV/ctpv
 cd ctpv || exit && \
 if grep -q 'ID_LIKE=debian' /etc/os-release; then # Debian-based and Ubuntu-based
-    sudo apt install -y libmagic-dev libcrypto++-dev
-    sudo apt-mark auto libmagic-dev libcrypto++-dev
+    sudo apt install -y libmagic-dev libcrypto++-dev libssl-dev
+    sudo apt-mark auto libmagic-dev libcrypto++-dev libssl-dev
+    wget https://patch-diff.githubusercontent.com/raw/NikitaIvanovV/ctpv/pull/90.diff && \
+    git apply 90.diff && \
     make clean && \
     sudo make install
     # to uninstall-
@@ -25,8 +26,12 @@ if grep -q 'ID_LIKE=debian' /etc/os-release; then # Debian-based and Ubuntu-base
 fi && \
 cd .. && sudo rm -rf ctpv
 
-wget -c https://github.com/gokcehan/lf/releases/download/r31/lf-linux-amd64.tar.gz -O - | tar xz -C "$HOME"/bin && \
+# Keep the release updated
+wget -c https://github.com/gokcehan/lf/releases/download/r32/lf-linux-amd64.tar.gz -O - | tar xz -C "$HOME"/bin && \
 chmod +x "$HOME"/bin/lf
+
+wget -c https://hpjansson.org/chafa/releases/static/chafa-1.14.2-1-x86_64-linux-gnu.tar.gz -O - | tar xz --strip-components=1 -C "$HOME"/bin && \
+chmod +x chafa
 
 sudo make clean install && \
 if command -v apt &> /dev/null; then
@@ -36,3 +41,5 @@ elif command -v pacman &> /dev/null; then
     echo '\n\nRemember to remove orphan build dependencies later'
 fi && \
 st
+
+echo "Go to ~/.local/share/fonts and run the script to download fonts"
